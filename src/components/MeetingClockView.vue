@@ -1,18 +1,9 @@
 <template>
   <v-app>
     <v-main>
-      <v-container class="py-6">
-        <!-- Überschrift -->
-        <v-row justify="center">
-          <v-col>
-            <v-card flat>
-              <v-card-title>Meeting-Clock</v-card-title>
-            </v-card>
-          </v-col>
-        </v-row>
-
+      <v-container class="py-0">
         <!-- Timer-Bereich -->
-        <v-row justify="center" class="mt-4">
+        <v-row justify="center">
           <v-col>
             <v-card outlined>
               <v-card-title class="d-flex flex-column align-center">
@@ -39,7 +30,7 @@
                     :disabled="store.isRunning"
                     @click="handleStart"
                   >
-                    {{ store.isRunning ? 'Start' : 'Continue' }}
+                    {{ !store.isRunning && store.elapsedSeconds == 0 ? 'Start' : 'Continue' }}
                   </v-btn>
                   <v-btn
                     color="warning"
