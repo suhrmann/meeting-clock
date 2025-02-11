@@ -1,5 +1,5 @@
 <template>
-  <MeetingClockView />
+  <MeetingClock />
 </template>
 
 <script setup>
