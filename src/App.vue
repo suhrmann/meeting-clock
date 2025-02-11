@@ -1,8 +1,5 @@
 <template>
   <v-app id="meeting-clock">
-    <!-- Navigation bar-->
-    <AppNavBar />
-
     <v-main class="bg-grey-lighten-3">
       <v-container>
         <v-row justify="center">
