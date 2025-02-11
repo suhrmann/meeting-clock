@@ -1,11 +1,11 @@
 <template>
   <v-app>
     <v-main>
-      <v-container class="py-0">
+      <v-container>
         <!-- Timer-Bereich -->
         <v-row justify="center">
           <v-col>
-            <v-card outlined>
+            <v-card>
               <v-card-title class="d-flex flex-column align-center">
 
                 <!-- Kosten-Anzeige -->
@@ -55,10 +55,11 @@
           </v-col>
         </v-row>
 
-        <!-- Teilnehmerliste -->
+
+        <!-- Meeting members -->
         <v-row justify="center" class="mt-6">
           <v-col>
-            <v-card outlined>
+            <v-card flat>
               <v-card-title class="justify-space-between">
                 <span>Teilnehmer</span>
               </v-card-title>
@@ -113,7 +114,11 @@
                 </table>
               </v-card-text>
               <v-card-actions>
-                <v-btn color="primary" variant="flat" @click="store.addParticipant">
+                <v-btn
+                  color="primary"
+                  variant="flat"
+                  @click="store.addParticipant"
+                >
                   + Teilnehmer hinzufügen
                 </v-btn>
               </v-card-actions>
