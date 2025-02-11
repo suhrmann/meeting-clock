@@ -1,5 +1,5 @@
 <template>
-  <HelloWorld />
+  <MeetingClockView />
 </template>
 
 <script setup>
