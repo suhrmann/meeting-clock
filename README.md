@@ -1,3 +1,11 @@
+# Meeting Clock
+
+<img src=".docs/2025-02-11_meeting-clock_screenshot.png" height="400px"></img>
+
+This template should help get you started developing with Vue 3 in Vite.
+
+-----
+
 # Vuetify (Default)
 
 This is the official scaffolding tool for Vuetify, designed to give you a head start in building your new Vuetify application. It sets up a base template with all the necessary configurations and standard directory structure, enabling you to begin development without the hassle of setting up the project from scratch.
