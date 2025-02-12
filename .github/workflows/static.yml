@@ -1,10 +1,9 @@
 name: Deploy tagged commits to GitHub-Pages
 
 on:
-  # Runs only on tagged commits on the main branch
+  # Runs only on tagged commits, e.v. v1.0.2
   push:
     tags: ["v*"]
-    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
