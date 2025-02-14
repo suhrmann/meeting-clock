@@ -80,10 +80,10 @@
                       :key="idx"
                     >
                       <td>
-                        <!-- Eingruppierung als v-select -->
-                        <v-select
-                          :items="Object.keys(store.monthlySalaries)"
+                        <!-- Eingruppierung as v-autocomplete to allow Test-search -->
+                        <v-autocomplete
                           v-model="p.category"
+                          :items="Object.keys(store.monthlySalaries)"
                           label="Eingruppierung"
                           dense
                           outlined

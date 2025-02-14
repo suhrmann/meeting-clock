@@ -21,9 +21,9 @@ export const useMeetingStore = defineStore('meeting', {
   }),
 
   getters: {
-    // umgerechnete Stundenlöhne (auf Basis ~172 Arbeitsstunden/Monat)
+    // umgerechnete Stundenlöhne (auf Basis von Arbeitsstunden/Monat)
     hourlyRates(state) {
-      const hoursPerMonth = 172 // hier ggf. anpassen
+      const hoursPerMonth = 160 // hier ggf. anpassen
 
       // Aus monthlySalaries -> pro Eintrag in Stunde umrechnen
       const result = {}
