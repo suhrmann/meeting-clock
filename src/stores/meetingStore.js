@@ -118,7 +118,7 @@ export const useMeetingStore = defineStore('meeting', {
     // Teilnehmer hinzufügen/entfernen
     addParticipant() {
       this.participants.push({
-        category: 'E13 (Stufe 1)',
+        category: Object.keys(this.monthlySalaries)[0],  // add first selected salary
         count: 1
       })
     },
