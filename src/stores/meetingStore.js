@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 
 import { monthlySalaryTables } from './salaryTables.js'
+import { HOURS_PER_MONTH } from "@/stores/settings.js";
 
 export const useMeetingStore = defineStore('meeting', {
   state: () => ({
@@ -23,12 +24,10 @@ export const useMeetingStore = defineStore('meeting', {
   getters: {
     // umgerechnete Stundenlöhne (auf Basis von Arbeitsstunden/Monat)
     hourlyRates(state) {
-      const hoursPerMonth = 160 // hier ggf. anpassen
-
       // Aus monthlySalaries -> pro Eintrag in Stunde umrechnen
       const result = {}
       for (const [cat, monthly] of Object.entries(state.monthlySalaries)) {
-        result[cat] = monthly / hoursPerMonth
+        result[cat] = monthly / HOURS_PER_MONTH
       }
       return result
     },
