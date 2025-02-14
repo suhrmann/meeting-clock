@@ -2,7 +2,7 @@
   "name": "meeting-clock",
   "private": true,
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": {
     "name": "Simon Uhrmann",
     "email": "suhrmann@posteo.de"
