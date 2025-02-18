@@ -6,49 +6,62 @@
         <v-row justify="center">
           <v-col>
             <v-card>
-              <v-card-title class="d-flex flex-column align-center">
+              <v-card-title class="d-flex flex-column align-center mt-6">
 
                 <!-- Kosten-Anzeige -->
-                <div class="mt-6 ">
-                  <span class="text-h4">
-                    Aktuelle Kosten:
-                  </span>
-                  <span class="text-h4 text-red font-weight-bold">
-                    {{ totalCostFormatted }} €
-                  </span>
+                <div class="text-h4">
+                  Meeting Kosten:
+                </div>
+                <div class="text-h4 text-red font-weight-bold text-center mt-5">
+                  {{ totalCostFormatted }} €
                 </div>
 
                 <!-- Timer-Anzeige -->
-                <div class="text-h5 my-3">{{ formattedTime }}</div>
+                <div class="text-h5 mt-3 mb-5">
+                  {{ formattedTime }}
+                </div>
 
                 <!-- Buttons -->
-                <div>
-                  <v-btn
-                    color="success"
-                    class="mr-5"
-                    size="large"
-                    :disabled="store.isRunning"
-                    @click="handleStart"
-                  >
-                    {{ !store.isRunning && store.elapsedSeconds == 0 ? 'Start' : 'Continue' }}
-                  </v-btn>
-                  <v-btn
-                    color="warning"
-                    class="mr-5"
-                    size="large"
-                    :disabled="!store.isRunning"
-                    @click="handlePause"
-                  >
-                    Pause
-                  </v-btn>
-                  <v-btn
-                    color="error"
-                    size="large"
-                    @click="handleReset"
-                  >
-                    Reset
-                  </v-btn>
-                </div>
+                <v-row
+                  align="center"
+                  justify="center"
+                  :class="smAndDown ? 'mt-16' : ''"
+                >
+                  <v-col cols="12" md="4" sm="6">
+                    <v-btn
+                      color="success"
+                      size="large"
+                      :block="smAndDown"
+                      :disabled="store.isRunning"
+                      @click="handleStart"
+                    >
+                      {{ !store.isRunning && store.elapsedSeconds == 0 ? 'Start' : 'Continue' }}
+                    </v-btn>
+                  </v-col>
+
+                  <v-col cols="12" md="4" sm="6">
+                    <v-btn
+                      color="warning"
+                      size="large"
+                      :block="smAndDown"
+                      :disabled="!store.isRunning"
+                      @click="handlePause"
+                    >
+                      Pause
+                    </v-btn>
+                  </v-col>
+
+                  <v-col cols="12" md="4" sm="6">
+                    <v-btn
+                      color="error"
+                      size="large"
+                      :block="smAndDown"
+                      @click="handleReset"
+                    >
+                      Reset
+                    </v-btn>
+                  </v-col>
+                </v-row>
 
               </v-card-title>
             </v-card>
@@ -103,6 +116,7 @@
                       <td>
                         <v-btn
                           color="error"
+                          class="mb-5"
                           icon
                           @click="store.removeParticipant(idx)"
                         >
@@ -134,10 +148,13 @@
 <script>
 import { onMounted, onUnmounted, computed } from 'vue'
 import { useMeetingStore } from '../stores/meetingStore'
+import { useDisplay } from 'vuetify'
 
 export default {
   setup() {
     const store = useMeetingStore()
+
+    const { smAndDown } = useDisplay()
 
     // Zeit formatieren (HH:MM:SS)
     const formattedTime = computed(() => {
@@ -178,6 +195,7 @@ export default {
       store,
       formattedTime,
       totalCostFormatted,
+      smAndDown,
       handleStart,
       handlePause,
       handleReset
