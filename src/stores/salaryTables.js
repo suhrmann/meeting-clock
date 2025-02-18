@@ -3,9 +3,6 @@
  * Source: https://oeffentlicher-dienst.info
  */
 export const monthlySalaryTables = {
-  /**
-   * Monatsentgelte TV-L 2025 für Stufe 1
-   */
   monthlySalariesTVL: {
     'title': 'Entgelttabelle TV-L 2025',
     'source': 'https://oeffentlicher-dienst.info/c/t/rechner/tv-l/allg?id=tv-l-2025&matrix=1',
@@ -29,9 +26,6 @@ export const monthlySalaryTables = {
     },
   },
 
-  /**
-   * Beamtenbesoldung Bayern 2025 - Besoldungsordnung A
-   */
   monthlySalariesBeamteBY_A: {
     'title': 'Beamtenbesoldung Bayern 2025 - Besoldungsordnung A (erste Stufe)',
     'source': 'https://oeffentlicher-dienst.info/c/t/rechner/tv-l/allg?id=tv-l-2025&matrix=1',
@@ -115,4 +109,18 @@ export const monthlySalaryTables = {
       'AW R 1': 1770.08,
     }
   },
+}
+
+/**
+ * Get a flat merged object of all entgelte ``<monthly salary table [group]>.entgelte`` above.
+ */
+export const allSalaryTables = () => {
+  return {
+    ...monthlySalaryTables.monthlySalariesTVL.entgelte,
+    ...monthlySalaryTables.monthlySalariesBeamteBY_A.entgelte,
+    ...monthlySalaryTables.monthlySalariesBeamteBY_B.entgelte,
+    ...monthlySalaryTables.monthlySalariesBeamteBY_W.entgelte,
+    ...monthlySalaryTables.monthlySalariesBeamteBY_R.entgelte,
+    ...monthlySalaryTables.monthlySalariesBeamteBY_AW.entgelte,
+  }
 }
