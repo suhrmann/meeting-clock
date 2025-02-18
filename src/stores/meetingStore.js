@@ -1,14 +1,14 @@
 import { defineStore } from 'pinia'
 
-import { monthlySalaryTables } from './salaryTables.js'
+import { allSalaryTables } from './salaryTables.js'
 import { HOURS_PER_MONTH } from "@/stores/settings.js";
 
 export const useMeetingStore = defineStore('meeting', {
   state: () => ({
     /*
-     * Map one "monthly salary table" to this variable.
+     * All monthly salaries of BY.
      */
-    monthlySalaries: monthlySalaryTables.monthlySalariesTVL.entgelte,
+    monthlySalaries: allSalaryTables(),
 
     // Liste der Teilnehmer/innen
     participants: [
